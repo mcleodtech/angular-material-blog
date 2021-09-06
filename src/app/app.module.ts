@@ -23,8 +23,8 @@ import { MessagesComponent } from './messages/messages.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NavigationSchematicComponent } from './navigation-schematic/navigation-schematic.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatListModule } from '@angular/material/list';3
-import { MatGridList, MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
