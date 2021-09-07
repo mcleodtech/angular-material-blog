@@ -25,6 +25,7 @@ import { NavigationSchematicComponent } from './navigation-schematic/navigation-
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { BlogAdminComponent } from './blog-admin/blog-admin.component';
 
 
 
@@ -40,6 +41,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     SidenavComponent,
     MessagesComponent,
     NavigationSchematicComponent,
+    BlogAdminComponent,
   ],
   imports: [
     BrowserModule,
