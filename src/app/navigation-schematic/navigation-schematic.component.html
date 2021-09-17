@@ -5,9 +5,15 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Blog</a>
-      <a mat-list-item href="#">About</a>
-      <a mat-list-item href="#">Contact</a>
+      <a mat-list-item
+      routerLink="/"
+      (click)="drawer.close()">Blog</a>
+      <a mat-list-item
+      routerLink="/about"
+      (click)="drawer.close()">About</a>
+      <a mat-list-item
+      routerLink="/"
+      (click)="drawer.close()">Contact</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -16,12 +22,25 @@
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
+        (click)="drawer.open()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>AngBlogTest</span>
-    </mat-toolbar>
-    <app-blog-post></app-blog-post>
+      <span>My Blog</span>
+      <span class="icon-spacer"></span>
+
+      <button mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+
+
+      <button mat-icon-button class="example-icon" (click)="openLogin()" aria-label="Icon button with person">
+        <mat-icon>person</mat-icon>
+      </button>
+        </mat-toolbar>
+  <router-outlet></router-outlet>
+
   </mat-sidenav-content>
 </mat-sidenav-container>

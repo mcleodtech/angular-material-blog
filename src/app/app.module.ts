@@ -26,9 +26,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BlogAdminComponent } from './blog-admin/blog-admin.component';
+import { AboutComponent } from './about/about.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
-
+// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+// and returns simulated server responses.
+// Remove it when a real server is ready to receive requests.
 
 
 
@@ -42,6 +48,7 @@ import { BlogAdminComponent } from './blog-admin/blog-admin.component';
     MessagesComponent,
     NavigationSchematicComponent,
     BlogAdminComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +68,16 @@ import { BlogAdminComponent } from './blog-admin/blog-admin.component';
     LayoutModule,
     MatListModule,
     MatGridListModule,
+    HttpClientInMemoryWebApiModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

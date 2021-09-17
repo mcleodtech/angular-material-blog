@@ -32,10 +32,13 @@ export class BlogPostComponent implements OnInit {
   }
 
   clickLike() {
-    this.messageService.add(`You liked a post!` )
+    var likeCount = BLOGPOST[0].likeCount;
+    this.messageService.add("You liked this post")
     this._snackBar.openFromComponent(MessagesComponent, {
       duration: 3000,
     });
+    likeCount++;
+    return likeCount;
   }
 
 

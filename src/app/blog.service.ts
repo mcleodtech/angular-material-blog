@@ -4,18 +4,19 @@ import { BlogPost } from './blog-post';
 import { BLOGPOST } from './mock-posts';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService,
+              private http: HttpClient) { }
+
+  private postsUrl = 'api/posts';
 
   getPosts(): Observable<BlogPost[]> {
-    const posts = of(BLOGPOST);
-    return posts;
+    return this.http.get<BlogPost[]>(this.postsUrl)
   }
 
   likeCount(): any {
